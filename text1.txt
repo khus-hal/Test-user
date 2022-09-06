@@ -1,1 +1,5 @@
 this is test file
+Second line added
+This will make a new commit
+this is third line added to make changes in the staged file
+
