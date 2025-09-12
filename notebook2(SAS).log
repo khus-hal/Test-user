@@ -1,0 +1,10 @@
+
+ACESSING DATA LAKE USINGS SAS using vault
+
+formula-db01-SAS = dbutils.secrets.get(scope = 'scope-name', key-name = 'key-name')
+
+
+spark.conf.set("fs.azure.account.key.(storage-account).dfs.core.windows.net", "SAS")
+spark.conf.set("fs.azure.sas.token.provider.type.<storage-account>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider")
+spark.conf.set("fs.azure.sas.fixed.token.formuladb01.dfs.core.windows.net", formula-db01-SAS)
+dbutils.fs.ls("abfss://container@storage-name.dfs.core.windows.net")
